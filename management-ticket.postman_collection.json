@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "69b2bd94-0eb0-49e4-b562-392dfeb2072b",
+		"name": "management-ticket",
+		"description": "Management Ticket คือ Postman Collection ที่ใช้จัดการระบบ support ticket ที่สามารถสร้าง ticket , แก้ไข ticket และดึงข้อมูล ticket ทั้งหมดมาแสดงผลได้\n\n<h2>** เปลี่ยน http://localhost:81 เป็น your hostname</h2>\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Ticket with filter",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"filterObj\": {\n        \"ticket_status\": \"pending\",\n        \"start_at\": \"2021-02-13T13:00:00.00+07:00\",\n        \"end_at\": \"2021-02-13T14:00:00.00+07:00\"\n    },\n    \"orderBy\": \"tickets.created_at\",\n    \"orderType\": \"desc\",\n    \"pageSize\": 20,\n    \"page\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:81/api/tickets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"api",
+						"tickets"
+					]
+				},
+				"description": "<h2>แสดงข้อมูลตั๋วด้วยเงื่อนไขที่ทำการกรอง</h2>\n\n<table>\n<tr><td>Varible</td><td>Description</td></tr>\n<tr><td>ticket_status</td><td>สถานะของ ticket ได้แก่ pending,accepted,resolved,rejected</td></tr>\n<tr><td>start_at</td><td>วันที่สร้างเริ่มต้นที่ต้องการค้นหา</td></tr>\n<tr><td>start_at</td><td>วันที่สร้างสิ้นสุดที่ต้องการค้นหา</td></tr>\n<tr><td>orderBy</td><td>คอลัมที่ต้องการให้เรียงลำดับ</td></tr>\n<tr><td>orderType</td><td>ประเภทที่ต้องการให้เรียงลำดับ มากไปน้อย(desc),น้อยไปมาก(asc)</td></tr>\n<tr><td>pageSize</td><td>จำนวนข้อมูลที่ต้องกการให้แสดงใน 1 หน้า</td></tr>\n<tr><td>page</td><td>เลขหน้าที่กำลังแสดงปัจจุบัน</td></tr>\n\n</table>"
+			},
+			"response": [
+				{
+					"name": "Get Ticket with fitler",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filterObj\": {\n        \"ticket_status\": \"pending\",\n        \"start_at\": \"2021-02-13T13:00:00.00+07:00\",\n        \"end_at\": \"2021-02-15T23:00:00.00+07:00\"\n    },\n    \"orderBy\": \"tickets.created_at\",\n    \"orderType\": \"desc\",\n    \"pageSize\": 20,\n    \"page\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:81/api/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"api",
+								"tickets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Feb 2021 15:58:51 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1380"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\"data\":[{\"row\":1,\"id\":8,\"name\":\"หน้าติดตั้งอุปกรณ์\",\"details\":\"ไม่สามารถค้นหาได้\",\"contact_info\":\"เบอร์ติดต่อกลับ 1221\",\"created_at\":\"2021-02-15T15:49:54+07:00\",\"updated_at\":\"2021-02-15T15:49:54+07:00\",\"ticket_status\":\"pending\"},{\"row\":2,\"id\":7,\"name\":\"dddd\",\"details\":\"\",\"contact_info\":\"\",\"created_at\":\"2021-02-15T15:17:12+07:00\",\"updated_at\":\"2021-02-15T15:17:12+07:00\",\"ticket_status\":\"pending\"},{\"row\":3,\"id\":5,\"name\":\"รายงาน\",\"details\":\"\",\"contact_info\":\"\",\"created_at\":\"2021-02-13T14:14:08+07:00\",\"updated_at\":\"2021-02-14T17:32:48+07:00\",\"ticket_status\":\"pending\"},{\"row\":4,\"id\":4,\"name\":\"rrr\",\"details\":\"\",\"contact_info\":\"\",\"created_at\":\"2021-02-13T14:12:36+07:00\",\"updated_at\":\"2021-02-13T14:12:36+07:00\",\"ticket_status\":\"pending\"},{\"row\":5,\"id\":3,\"name\":\"ter\",\"details\":\"\",\"contact_info\":\"\",\"created_at\":\"2021-02-13T13:56:09+07:00\",\"updated_at\":\"2021-02-13T13:56:09+07:00\",\"ticket_status\":\"pending\"},{\"row\":6,\"id\":2,\"name\":\"test2\",\"details\":\"\",\"contact_info\":\"\",\"created_at\":\"2021-02-13T13:55:44+07:00\",\"updated_at\":\"2021-02-13T13:55:44+07:00\",\"ticket_status\":\"pending\"},{\"row\":7,\"id\":1,\"name\":\"test\",\"details\":\"\",\"contact_info\":\"\",\"created_at\":\"2021-02-13T13:54:38+07:00\",\"updated_at\":\"2021-02-13T13:54:38+07:00\",\"ticket_status\":\"pending\"}],\"total_rows\":7}\n"
+				}
+			]
+		},
+		{
+			"name": "Create Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"หน้าติดตั้งอุปกรณ์\",\n    \"detail\": \"ไม่สามารถค้นหาได้\",\n    \"contact_info\": \"เบอร์ติดต่อกลับ 1221\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:81/api/tickets/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"api",
+						"tickets",
+						"create"
+					]
+				},
+				"description": "<h2>สร้าง Ticket</h2>\n\n<table>\n<tr><td>Varible</td><td>Description</td></tr>\n<tr><td>name</td><td>ชื่อ</td></tr>\n<tr><td>detail</td><td>รายละเอียด</td></tr>\n<tr><td>contact_info</td><td>ข้อมูลการติดต่อกลับ</td></tr>\n</table>"
+			},
+			"response": [
+				{
+					"name": "Create Ticket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"หน้าติดตั้งอุปกรณ์\",\n    \"detail\": \"ไม่สามารถค้นหาได้\",\n    \"contact_info\": \"เบอร์ติดต่อกลับ 1221\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:81/api/tickets/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"api",
+								"tickets",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Feb 2021 16:00:03 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "29"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\"message\":\"Insert success\"}\n"
+				}
+			]
+		},
+		{
+			"name": "Update Ticket",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":6,\n    \"name\": \"ปัญหาคอมพิวเตอร์เครื่อง 1\",\n    \"detail\": \"login ไม่ได้\",\n    \"contact_info\": \"เบอร์ติดต่อกลับ 1222\",\n    \"ticket_status\":\"accepted\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:81/api/tickets/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"api",
+						"tickets",
+						"update"
+					]
+				},
+				"description": "<h2>แก้ไข Ticket</h2>\n\n<table>\n<tr><td>Varible</td><td>Description</td></tr>\n<tr><td>name</td><td>ชื่อ</td></tr>\n<tr><td>detail</td><td>รายละเอียด</td></tr>\n<tr><td>contact_info</td><td>ข้อมูลการติดต่อกลับ</td></tr>\n<tr><td>ticket_status</td><td>pending,acceped,resolved,rejected</td></tr>\n</table>"
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":6,\n    \"name\": \"ปัญหาคอมพิวเตอร์เครื่อง 1\",\n    \"detail\": \"login ไม่ได้\",\n    \"contact_info\": \"เบอร์ติดต่อกลับ 1222\",\n    \"ticket_status\":\"accepted\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:81/api/tickets/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"api",
+								"tickets",
+								"update"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Feb 2021 15:59:11 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "27"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\"message\":\"Edit success\"}\n"
+				}
+			]
+		}
+	]
+}
